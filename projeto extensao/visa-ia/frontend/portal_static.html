@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal de Envio de Documentos - VISA Londrina</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo-area">
+                <div class="shield-icon">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <div class="brand-text">
+                    <h1>VISA Londrina</h1>
+                    <span>VIGILÂNCIA SANITÁRIA</span>
+                </div>
+            </div>
+            <nav class="main-nav">
+                <a href="portal_static.html" class="nav-link active">Portal de Documentos</a>
+                <a href="dashboard_static.html" class="nav-link">Dashboard VISA</a>
+                <a href="login_static.html" class="nav-link logout" title="Sair"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="breadcrumb">
+            <span class="text-muted">VISA Londrina</span>
+            <i class="fa-solid fa-chevron-right text-muted mx-2" style="font-size: 10px;"></i>
+            <span class="font-weight-500">Portal de Envio de Documentos</span>
+        </div>
+
+        <div class="page-header mt-4">
+            <h1 class="page-title">Portal de Envio de Documentos</h1>
+            <p class="page-subtitle">Envie os documentos necessários para o processo de licenciamento sanitário da sua empresa.</p>
+        </div>
+
+        <div class="portal-grid mt-6">
+            <div class="portal-main">
+                <!-- Steps Navigation -->
+                <div class="steps-container">
+                    <div class="step active">
+                        <div class="step-number">1</div>
+                        <div class="step-label">Dados da Empresa</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-label">Documentos Obrigatórios</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-label">Documentos Adicionais</div>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">4</div>
+                        <div class="step-label">Revisão</div>
+                    </div>
+                </div>
+
+                <!-- Form Card -->
+                <div class="card mt-4" id="form-container">
+                    
+                    <!-- Step 1: Dados da Empresa -->
+                    <div class="step-content" id="step-1">
+                        <div class="card-header-icon">
+                            <div class="icon-box-light-blue">
+                                <i class="fa-regular fa-building"></i>
+                            </div>
+                            <div>
+                                <h3 class="card-title-lg">Dados da Empresa</h3>
+                                <p class="card-subtitle">Informe os dados do estabelecimento</p>
+                            </div>
+                        </div>
+                        
+                        <form action="#" class="mt-5">
+                            <div class="form-row">
+                                <div class="form-group half">
+                                    <label for="razao_social">Razão Social <span class="text-danger">*</span></label>
+                                    <input type="text" id="razao_social" placeholder="Nome da empresa">
+                                    <span id="error-razao" class="error-feedback" style="color: var(--danger); font-size: 11px; display: none; margin-top: 4px;"></span>
+                                </div>
+                                <div class="form-group half">
+                                    <label for="cnpj">CNPJ <span class="text-danger">*</span></label>
+                                    <input type="text" id="cnpj" placeholder="00.000.000/0000-00" maxlength="18">
+                                    <span id="error-cnpj" class="error-feedback" style="color: var(--danger); font-size: 11px; display: none; margin-top: 4px;"></span>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group mt-3">
+                                <label for="tipo_estabelecimento">Tipo de Estabelecimento <span class="text-danger">*</span></label>
+                                <div class="select-wrapper">
+                                    <select id="tipo_estabelecimento">
+                                        <option value="" disabled selected>Selecione o tipo</option>
+                                        <option value="alimenticio">Alimentício</option>
+                                        <option value="saude">Saúde</option>
+                                        <option value="farmaceutico">Farmacêutico</option>
+                                        <option value="estetico">Estético</option>
+                                    </select>
+                                    <i class="fa-solid fa-chevron-down select-icon"></i>
+                                </div>
+                                <span id="error-tipo" class="error-feedback" style="color: var(--danger); font-size: 11px; display: none; margin-top: 4px;"></span>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Step 2: Documentos Obrigatórios -->
+                    <div class="step-content" id="step-2" style="display: none;">
+                        <div class="card-header-icon">
+                            <div class="icon-box-light-blue">
+                                <i class="fa-solid fa-file-contract"></i>
+                            </div>
+                            <div>
+                                <h3 class="card-title-lg">Documentos Obrigatórios</h3>
+                                <p class="card-subtitle">Faça o upload dos documentos essenciais para sua categoria</p>
+                            </div>
+                        </div>
+                        
+                        <div class="document-grid mt-5">
+                            <div class="upload-zone" data-doc="Contrato Social">
+                                <input type="file" class="file-input" style="display: none;" accept=".pdf,.jpg,.jpeg,.png">
+                                <div class="zone-default">
+                                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                                    <p class="font-weight-600 mt-2">Contrato Social</p>
+                                    <p class="text-xs text-muted">PDF, JPG (Max 5MB)</p>
+                                </div>
+                                <div class="zone-uploaded" style="display: none;">
+                                    <i class="fa-solid fa-circle-check" style="color: var(--success); font-size: 24px; margin-bottom: 8px;"></i>
+                                    <p class="font-weight-600 mt-2 filename-display"></p>
+                                    <p class="text-xs text-muted filesize-display"></p>
+                                    <button type="button" class="btn-remove-file mt-2" style="background: none; border: none; color: var(--danger); font-size: 11px; font-weight: 600; cursor: pointer; text-decoration: underline;">Remover</button>
+                                </div>
+                            </div>
+                            <div class="upload-zone" data-doc="Alvará Sanitário">
+                                <input type="file" class="file-input" style="display: none;" accept=".pdf,.jpg,.jpeg,.png">
+                                <div class="zone-default">
+                                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                                    <p class="font-weight-600 mt-2">Alvará Sanitário</p>
+                                    <p class="text-xs text-muted">PDF, JPG (Max 5MB)</p>
+                                </div>
+                                <div class="zone-uploaded" style="display: none;">
+                                    <i class="fa-solid fa-circle-check" style="color: var(--success); font-size: 24px; margin-bottom: 8px;"></i>
+                                    <p class="font-weight-600 mt-2 filename-display"></p>
+                                    <p class="text-xs text-muted filesize-display"></p>
+                                    <button type="button" class="btn-remove-file mt-2" style="background: none; border: none; color: var(--danger); font-size: 11px; font-weight: 600; cursor: pointer; text-decoration: underline;">Remover</button>
+                                </div>
+                            </div>
+                            <div class="upload-zone" data-doc="Laudo Técnico">
+                                <input type="file" class="file-input" style="display: none;" accept=".pdf">
+                                <div class="zone-default">
+                                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                                    <p class="font-weight-600 mt-2">Laudo Técnico</p>
+                                    <p class="text-xs text-muted">PDF (Max 10MB)</p>
+                                </div>
+                                <div class="zone-uploaded" style="display: none;">
+                                    <i class="fa-solid fa-circle-check" style="color: var(--success); font-size: 24px; margin-bottom: 8px;"></i>
+                                    <p class="font-weight-600 mt-2 filename-display"></p>
+                                    <p class="text-xs text-muted filesize-display"></p>
+                                    <button type="button" class="btn-remove-file mt-2" style="background: none; border: none; color: var(--danger); font-size: 11px; font-weight: 600; cursor: pointer; text-decoration: underline;">Remover</button>
+                                </div>
+                            </div>
+                            <div class="upload-zone" data-doc="Planta Baixa">
+                                <input type="file" class="file-input" style="display: none;" accept=".pdf,.dwg">
+                                <div class="zone-default">
+                                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                                    <p class="font-weight-600 mt-2">Planta Baixa</p>
+                                    <p class="text-xs text-muted">PDF, DWG (Max 15MB)</p>
+                                </div>
+                                <div class="zone-uploaded" style="display: none;">
+                                    <i class="fa-solid fa-circle-check" style="color: var(--success); font-size: 24px; margin-bottom: 8px;"></i>
+                                    <p class="font-weight-600 mt-2 filename-display"></p>
+                                    <p class="text-xs text-muted filesize-display"></p>
+                                    <button type="button" class="btn-remove-file mt-2" style="background: none; border: none; color: var(--danger); font-size: 11px; font-weight: 600; cursor: pointer; text-decoration: underline;">Remover</button>
+                                </div>
+                            </div>
+                            <div class="upload-zone" data-doc="Manual de Boas Práticas">
+                                <input type="file" class="file-input" style="display: none;" accept=".pdf">
+                                <div class="zone-default">
+                                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                                    <p class="font-weight-600 mt-2">Manual de Boas Práticas</p>
+                                    <p class="text-xs text-muted">PDF (Max 10MB)</p>
+                                </div>
+                                <div class="zone-uploaded" style="display: none;">
+                                    <i class="fa-solid fa-circle-check" style="color: var(--success); font-size: 24px; margin-bottom: 8px;"></i>
+                                    <p class="font-weight-600 mt-2 filename-display"></p>
+                                    <p class="text-xs text-muted filesize-display"></p>
+                                    <button type="button" class="btn-remove-file mt-2" style="background: none; border: none; color: var(--danger); font-size: 11px; font-weight: 600; cursor: pointer; text-decoration: underline;">Remover</button>
+                                </div>
+                            </div>
+                            <div class="upload-zone" data-doc="Comprovante de Endereço">
+                                <input type="file" class="file-input" style="display: none;" accept=".pdf,.jpg,.jpeg,.png">
+                                <div class="zone-default">
+                                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                                    <p class="font-weight-600 mt-2">Comprovante de Endereço</p>
+                                    <p class="text-xs text-muted">PDF, JPG (Max 5MB)</p>
+                                </div>
+                                <div class="zone-uploaded" style="display: none;">
+                                    <i class="fa-solid fa-circle-check" style="color: var(--success); font-size: 24px; margin-bottom: 8px;"></i>
+                                    <p class="font-weight-600 mt-2 filename-display"></p>
+                                    <p class="text-xs text-muted filesize-display"></p>
+                                    <button type="button" class="btn-remove-file mt-2" style="background: none; border: none; color: var(--danger); font-size: 11px; font-weight: 600; cursor: pointer; text-decoration: underline;">Remover</button>
+                                </div>
+                            </div>
+                            <div class="upload-zone" data-doc="Licença Ambiental">
+                                <input type="file" class="file-input" style="display: none;" accept=".pdf,.jpg,.jpeg,.png">
+                                <div class="zone-default">
+                                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                                    <p class="font-weight-600 mt-2">Licença Ambiental</p>
+                                    <p class="text-xs text-muted">PDF, JPG (Max 5MB)</p>
+                                </div>
+                                <div class="zone-uploaded" style="display: none;">
+                                    <i class="fa-solid fa-circle-check" style="color: var(--success); font-size: 24px; margin-bottom: 8px;"></i>
+                                    <p class="font-weight-600 mt-2 filename-display"></p>
+                                    <p class="text-xs text-muted filesize-display"></p>
+                                    <button type="button" class="btn-remove-file mt-2" style="background: none; border: none; color: var(--danger); font-size: 11px; font-weight: 600; cursor: pointer; text-decoration: underline;">Remover</button>
+                                </div>
+                            </div>
+                            <div class="upload-zone" data-doc="Certificado dos Bombeiros">
+                                <input type="file" class="file-input" style="display: none;" accept=".pdf,.jpg,.jpeg,.png">
+                                <div class="zone-default">
+                                    <i class="fa-solid fa-cloud-arrow-up"></i>
+                                    <p class="font-weight-600 mt-2">Certificado dos Bombeiros</p>
+                                    <p class="text-xs text-muted">PDF, JPG (Max 5MB)</p>
+                                </div>
+                                <div class="zone-uploaded" style="display: none;">
+                                    <i class="fa-solid fa-circle-check" style="color: var(--success); font-size: 24px; margin-bottom: 8px;"></i>
+                                    <p class="font-weight-600 mt-2 filename-display"></p>
+                                    <p class="text-xs text-muted filesize-display"></p>
+                                    <button type="button" class="btn-remove-file mt-2" style="background: none; border: none; color: var(--danger); font-size: 11px; font-weight: 600; cursor: pointer; text-decoration: underline;">Remover</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Documentos Adicionais -->
+                    <div class="step-content" id="step-3" style="display: none;">
+                        <div class="card-header-icon">
+                            <div class="icon-box-light-blue">
+                                <i class="fa-solid fa-file-circle-plus"></i>
+                            </div>
+                            <div>
+                                <h3 class="card-title-lg">Documentos Adicionais</h3>
+                                <p class="card-subtitle">Anexe outros documentos que julgar necessários (Opcional)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-5">
+                            <div class="upload-zone full-width" style="padding: 3rem;" id="upload-adicional">
+                                <input type="file" id="additional-file-input" style="display: none;" multiple accept=".pdf,.jpg,.jpeg,.png,.dwg">
+                                <i class="fa-solid fa-file-arrow-up" style="font-size: 32px;"></i>
+                                <p class="font-weight-600 mt-2" style="font-size: 16px;">Clique ou arraste arquivos aqui</p>
+                                <p class="text-sm mt-2 text-muted">Você pode enviar laudos extras, certificações ISO, fotos do estabelecimento, etc.</p>
+                            </div>
+                            
+                            <div class="mt-4" id="adicionais-list">
+                                <!-- Adicionais mockados aparecerão aqui -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Revisão -->
+                    <div class="step-content" id="step-4" style="display: none;">
+                        <div class="card-header-icon">
+                            <div class="icon-box-light-blue" style="background-color: var(--success-light); color: var(--success);">
+                                <i class="fa-solid fa-clipboard-check"></i>
+                            </div>
+                            <div>
+                                <h3 class="card-title-lg">Revisão e Envio</h3>
+                                <p class="card-subtitle">Verifique as informações antes de submeter o processo</p>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-5">
+                            <div class="review-section">
+                                <h4>1. Dados da Empresa</h4>
+                                <div class="review-item">
+                                    <span class="review-item-label">Razão Social:</span>
+                                    <span class="review-item-value" id="rev-razao">Não informado</span>
+                                </div>
+                                <div class="review-item">
+                                    <span class="review-item-label">CNPJ:</span>
+                                    <span class="review-item-value" id="rev-cnpj">Não informado</span>
+                                </div>
+                                <div class="review-item">
+                                    <span class="review-item-label">Tipo:</span>
+                                    <span class="review-item-value" id="rev-tipo">Não informado</span>
+                                </div>
+                            </div>
+                            
+                            <div class="review-section mt-3">
+                                <h4>2. Situação dos Documentos</h4>
+                                <div class="review-item">
+                                    <span class="review-item-label">Obrigatórios:</span>
+                                    <span class="review-item-value text-danger" id="rev-obrig">0 de 8 enviados</span>
+                                </div>
+                                <div class="review-item" id="rev-obrig-list-container" style="display: none; padding-left: 15px; margin-bottom: 10px;">
+                                    <ul id="rev-obrig-list" style="font-size: 12px; color: var(--text-muted); list-style-type: disc;">
+                                        <!-- List of actual files will go here -->
+                                    </ul>
+                                </div>
+                                
+                                <div class="review-item">
+                                    <span class="review-item-label">Adicionais:</span>
+                                    <span class="review-item-value" id="rev-adic">0 enviados</span>
+                                </div>
+                                <div class="review-item" id="rev-adic-list-container" style="display: none; padding-left: 15px; margin-bottom: 10px;">
+                                    <ul id="rev-adic-list" style="font-size: 12px; color: var(--text-muted); list-style-type: disc;">
+                                        <!-- List of actual files will go here -->
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group mt-4" style="flex-direction: row; align-items: center; gap: 10px;">
+                                <input type="checkbox" id="declaracao" style="width: auto;">
+                                <label for="declaracao" style="font-size: 13px; font-weight: 400; cursor: pointer; color: var(--text-main);">Declaro sob as penas da lei que as informações e documentos apresentados são verdadeiros.</label>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="actions-row mt-4">
+                    <button class="btn-outline" id="btn-prev" style="visibility: hidden;">Voltar</button>
+                    <button class="btn-primary" id="btn-next">Próximo <i class="fa-solid fa-chevron-right ml-2" style="font-size: 12px;"></i></button>
+                    <button class="btn-success" id="btn-submit" style="display: none;">Enviar Processo <i class="fa-solid fa-paper-plane ml-2" style="font-size: 12px;"></i></button>
+                </div>
+            </div>
+
+            <div class="portal-sidebar">
+                <!-- Progress Card -->
+                <div class="card text-center py-6">
+                    <div class="circular-progress">
+                        <div class="inner-circle">
+                            <span class="progress-value">0%</span>
+                            <span class="progress-label">COMPLETO</span>
+                        </div>
+                    </div>
+                    <h4 class="mt-4 font-weight-600">Progresso Documental</h4>
+                    <p class="text-muted text-sm">0 de 8 documentos obrigatórios enviados</p>
+                </div>
+
+                <!-- Required Items Checklist -->
+                <div class="card mt-4">
+                    <h4 class="font-weight-600 mb-4">Itens Obrigatórios</h4>
+                    <ul class="checklist">
+                        <li class="checklist-item">
+                            <div class="circle-check"></div>
+                            <span>Contrato Social</span>
+                        </div>
+                        <li class="checklist-item">
+                            <div class="circle-check"></div>
+                            <span>Alvará Sanitário</span>
+                        </li>
+                        <li class="checklist-item">
+                            <div class="circle-check"></div>
+                            <span>Laudo Técnico</span>
+                        </li>
+                        <li class="checklist-item">
+                            <div class="circle-check"></div>
+                            <span>Planta Baixa</span>
+                        </li>
+                        <li class="checklist-item">
+                            <div class="circle-check"></div>
+                            <span>Manual de Boas Práticas</span>
+                        </li>
+                        <li class="checklist-item">
+                            <div class="circle-check"></div>
+                            <span>Comprovante de Endereço</span>
+                        </li>
+                        <li class="checklist-item">
+                            <div class="circle-check"></div>
+                            <span>Licença Ambiental</span>
+                        </li>
+                        <li class="checklist-item">
+                            <div class="circle-check"></div>
+                            <span>Certificado dos Bombeiros</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Floating Help Button -->
+                <div class="floating-btn">
+                    <i class="fa-regular fa-comment-dots"></i>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script src="static/js/main.js"></script>
+</body>
+</html>

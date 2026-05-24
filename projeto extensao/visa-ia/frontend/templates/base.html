@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}VISA Londrina{% endblock %}</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    {% if request.endpoint != 'login' %}
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo-area">
+                <div class="shield-icon">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <div class="brand-text">
+                    <h1>VISA Londrina</h1>
+                    <span>VIGILÂNCIA SANITÁRIA</span>
+                </div>
+            </div>
+            <nav class="main-nav">
+                <a href="{{ url_for('portal') }}" class="nav-link {% if request.endpoint == 'portal' %}active{% endif %}">Portal de Documentos</a>
+                <a href="{{ url_for('dashboard') }}" class="nav-link {% if request.endpoint == 'dashboard' %}active{% endif %}">Dashboard VISA</a>
+                <a href="{{ url_for('login') }}" class="nav-link logout" title="Sair"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+            </nav>
+        </div>
+    </header>
+    {% endif %}
+
+    <main class="main-content">
+        {% block content %}{% endblock %}
+    </main>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

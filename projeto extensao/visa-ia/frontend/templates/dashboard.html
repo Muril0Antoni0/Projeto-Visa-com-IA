@@ -1,0 +1,159 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard do Analista Sanitário - VISA Londrina{% endblock %}
+
+{% block content %}
+<div class="breadcrumb">
+    <span class="text-muted">VISA Londrina</span>
+    <i class="fa-solid fa-chevron-right text-muted mx-2" style="font-size: 10px;"></i>
+    <span class="font-weight-500">Dashboard do Analista</span>
+</div>
+
+<div class="page-header mt-4">
+    <h1 class="page-title">Dashboard do Analista Sanitário</h1>
+    <p class="page-subtitle">Gerencie a fila de processos com indicadores de risco e pré-relatórios IA.</p>
+</div>
+
+<!-- Stats Row -->
+<div class="stats-grid mt-5">
+    <div class="stat-card">
+        <div class="stat-icon box-blue">
+            <i class="fa-solid fa-clipboard-list"></i>
+        </div>
+        <div class="stat-info">
+            <h3>6</h3>
+            <p>Total de Processos</p>
+        </div>
+    </div>
+    
+    <div class="stat-card">
+        <div class="stat-icon box-yellow">
+            <i class="fa-regular fa-clock"></i>
+        </div>
+        <div class="stat-info">
+            <h3>2</h3>
+            <p>Pendentes</p>
+        </div>
+    </div>
+    
+    <div class="stat-card">
+        <div class="stat-icon box-green">
+            <i class="fa-regular fa-circle-check"></i>
+        </div>
+        <div class="stat-info">
+            <h3>2</h3>
+            <p>Em Análise</p>
+        </div>
+    </div>
+    
+    <div class="stat-card">
+        <div class="stat-icon box-red">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+        </div>
+        <div class="stat-info">
+            <h3>3</h3>
+            <p>Alto Risco</p>
+        </div>
+    </div>
+</div>
+
+<!-- Filters -->
+<div class="filters-container mt-4">
+    <div class="filter-header">
+        <i class="fa-solid fa-sliders text-muted"></i>
+        <span class="font-weight-500">Filtros</span>
+    </div>
+    <div class="filters-row mt-3">
+        <div class="search-box">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+            <input type="text" placeholder="Buscar empresa...">
+        </div>
+        
+        <div class="select-wrapper filter-select">
+            <select>
+                <option value="">Todos os Status</option>
+            </select>
+            <i class="fa-solid fa-chevron-down select-icon"></i>
+        </div>
+        
+        <div class="select-wrapper filter-select">
+            <select>
+                <option value="">Todos os Tipos</option>
+            </select>
+            <i class="fa-solid fa-chevron-down select-icon"></i>
+        </div>
+        
+        <div class="select-wrapper filter-select">
+            <select>
+                <option value="">Todas as Prioridades</option>
+            </select>
+            <i class="fa-solid fa-chevron-down select-icon"></i>
+        </div>
+    </div>
+</div>
+
+<!-- Processes Grid -->
+<div class="processes-grid mt-4">
+    {% for processo in processos %}
+    <div class="process-card">
+        <div class="process-header">
+            <div class="process-icon-box">
+                <i class="fa-solid fa-building"></i>
+            </div>
+            <div class="process-title-area">
+                <h4>{{ processo.nome }}</h4>
+                <span class="process-id">{{ processo.id }}</span>
+            </div>
+        </div>
+        
+        <div class="process-badges mt-3">
+            {% if processo.status == 'Diligência' %}
+            <span class="badge badge-warning-outline"><i class="fa-regular fa-clock mr-1"></i> Diligência</span>
+            {% elif processo.status == 'Pendente' %}
+            <span class="badge badge-light-outline"><i class="fa-regular fa-clock mr-1"></i> Pendente</span>
+            {% elif processo.status == 'Em Análise' %}
+            <span class="badge badge-primary-outline"><i class="fa-regular fa-circle mr-1"></i> Em Análise</span>
+            {% elif processo.status == 'Aprovado' %}
+            <span class="badge badge-success-outline"><i class="fa-regular fa-circle-check mr-1"></i> Aprovado</span>
+            {% endif %}
+            
+            {% if processo.risco_class == 'critical' %}
+            <span class="badge badge-danger-outline"><i class="fa-solid fa-triangle-exclamation mr-1"></i> {{ processo.risco }}</span>
+            {% elif processo.risco_class == 'high' %}
+            <span class="badge badge-warning-outline"><i class="fa-solid fa-triangle-exclamation mr-1"></i> {{ processo.risco }}</span>
+            {% elif processo.risco_class == 'medium' %}
+            <span class="badge badge-warning-outline"><i class="fa-solid fa-triangle-exclamation mr-1"></i> {{ processo.risco }}</span>
+            {% elif processo.risco_class == 'low' %}
+            <span class="badge badge-success-outline"><i class="fa-solid fa-shield-check mr-1"></i> {{ processo.risco }}</span>
+            {% endif %}
+        </div>
+        
+        <div class="process-meta mt-4">
+            <div class="meta-item">
+                <i class="fa-regular fa-file-lines"></i>
+                <span>{{ processo.tipo }}</span>
+            </div>
+            <div class="meta-item">
+                <i class="fa-regular fa-clock"></i>
+                <span>{{ processo.data }}</span>
+            </div>
+        </div>
+        
+        <div class="process-progress mt-3">
+            <div class="progress-header">
+                <span class="font-weight-500 text-sm">Completude</span>
+                <span class="font-weight-600 text-sm">{{ processo.completude }}%</span>
+            </div>
+            <div class="progress-bar-bg mt-2">
+                <div class="progress-bar-fill" style="width: {{ processo.completude }}%;"></div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<!-- Floating Help Button -->
+<div class="floating-btn">
+    <i class="fa-regular fa-comment-dots"></i>
+</div>
+{% endblock %}

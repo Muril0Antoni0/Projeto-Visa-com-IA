@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard do Analista Sanitário - VISA Londrina</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="static/css/style.css">
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo-area">
+                <div class="shield-icon">
+                    <i class="fa-solid fa-shield-halved"></i>
+                </div>
+                <div class="brand-text">
+                    <h1>VISA Londrina</h1>
+                    <span>VIGILÂNCIA SANITÁRIA</span>
+                </div>
+            </div>
+            <nav class="main-nav">
+                <a href="portal_static.html" class="nav-link">Portal de Documentos</a>
+                <a href="dashboard_static.html" class="nav-link active">Dashboard VISA</a>
+                <a href="login_static.html" class="nav-link logout" title="Sair"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="breadcrumb">
+            <span class="text-muted">VISA Londrina</span>
+            <i class="fa-solid fa-chevron-right text-muted mx-2" style="font-size: 10px;"></i>
+            <span class="font-weight-500">Dashboard do Analista</span>
+        </div>
+
+        <div class="page-header mt-4">
+            <h1 class="page-title">Dashboard do Analista Sanitário</h1>
+            <p class="page-subtitle">Gerencie a fila de processos com indicadores de risco e pré-relatórios IA.</p>
+        </div>
+
+        <!-- Stats Row -->
+        <div class="stats-grid mt-5">
+            <div class="stat-card">
+                <div class="stat-icon box-blue">
+                    <i class="fa-solid fa-clipboard-list"></i>
+                </div>
+                <div class="stat-info">
+                    <h3>6</h3>
+                    <p>Total de Processos</p>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon box-yellow">
+                    <i class="fa-regular fa-clock"></i>
+                </div>
+                <div class="stat-info">
+                    <h3>2</h3>
+                    <p>Pendentes</p>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon box-green">
+                    <i class="fa-regular fa-circle-check"></i>
+                </div>
+                <div class="stat-info">
+                    <h3>2</h3>
+                    <p>Em Análise</p>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon box-red">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                </div>
+                <div class="stat-info">
+                    <h3>3</h3>
+                    <p>Alto Risco</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filters -->
+        <div class="filters-container mt-4">
+            <div class="filter-header">
+                <i class="fa-solid fa-sliders text-muted"></i>
+                <span class="font-weight-500">Filtros</span>
+            </div>
+            <div class="filters-row mt-3">
+                <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input type="text" placeholder="Buscar empresa...">
+                </div>
+                
+                <div class="select-wrapper filter-select">
+                    <select>
+                        <option value="">Todos os Status</option>
+                    </select>
+                    <i class="fa-solid fa-chevron-down select-icon"></i>
+                </div>
+                
+                <div class="select-wrapper filter-select">
+                    <select>
+                        <option value="">Todos os Tipos</option>
+                    </select>
+                    <i class="fa-solid fa-chevron-down select-icon"></i>
+                </div>
+                
+                <div class="select-wrapper filter-select">
+                    <select>
+                        <option value="">Todas as Prioridades</option>
+                    </select>
+                    <i class="fa-solid fa-chevron-down select-icon"></i>
+                </div>
+            </div>
+        </div>
+
+        <!-- Processes Grid -->
+        <div class="processes-grid mt-4">
+            
+            <div class="process-card">
+                <div class="process-header">
+                    <div class="process-icon-box">
+                        <i class="fa-solid fa-building"></i>
+                    </div>
+                    <div class="process-title-area">
+                        <h4>Clínica Estética Bella Vita</h4>
+                        <span class="process-id">VISA-R2T5W9</span>
+                    </div>
+                </div>
+                <div class="process-badges mt-3">
+                    <span class="badge badge-warning-outline"><i class="fa-regular fa-clock mr-1"></i> Diligência</span>
+                    <span class="badge badge-danger-outline"><i class="fa-solid fa-triangle-exclamation mr-1"></i> Crítico (94)</span>
+                </div>
+                <div class="process-meta mt-4">
+                    <div class="meta-item"><i class="fa-regular fa-file-lines"></i><span>Estético</span></div>
+                    <div class="meta-item"><i class="fa-regular fa-clock"></i><span>27/04/2026</span></div>
+                </div>
+                <div class="process-progress mt-3">
+                    <div class="progress-header"><span class="font-weight-500 text-sm">Completude</span><span class="font-weight-600 text-sm">37%</span></div>
+                    <div class="progress-bar-bg mt-2"><div class="progress-bar-fill" style="width: 37%;"></div></div>
+                </div>
+            </div>
+
+            <div class="process-card">
+                <div class="process-header">
+                    <div class="process-icon-box">
+                        <i class="fa-solid fa-building"></i>
+                    </div>
+                    <div class="process-title-area">
+                        <h4>Restaurante Sabor do Norte</h4>
+                        <span class="process-id">VISA-M4XBK2</span>
+                    </div>
+                </div>
+                <div class="process-badges mt-3">
+                    <span class="badge badge-light-outline"><i class="fa-regular fa-clock mr-1"></i> Pendente</span>
+                    <span class="badge badge-warning-outline"><i class="fa-solid fa-triangle-exclamation mr-1"></i> Risco Alto (82)</span>
+                </div>
+                <div class="process-meta mt-4">
+                    <div class="meta-item"><i class="fa-regular fa-file-lines"></i><span>Alimentício</span></div>
+                    <div class="meta-item"><i class="fa-regular fa-clock"></i><span>27/04/2026</span></div>
+                </div>
+                <div class="process-progress mt-3">
+                    <div class="progress-header"><span class="font-weight-500 text-sm">Completude</span><span class="font-weight-600 text-sm">62%</span></div>
+                    <div class="progress-bar-bg mt-2"><div class="progress-bar-fill" style="width: 62%;"></div></div>
+                </div>
+            </div>
+
+            <div class="process-card">
+                <div class="process-header">
+                    <div class="process-icon-box">
+                        <i class="fa-solid fa-building"></i>
+                    </div>
+                    <div class="process-title-area">
+                        <h4>Hospital São Lucas</h4>
+                        <span class="process-id">VISA-F3G7B2</span>
+                    </div>
+                </div>
+                <div class="process-badges mt-3">
+                    <span class="badge badge-primary-outline"><i class="fa-regular fa-circle mr-1"></i> Em Análise</span>
+                    <span class="badge badge-warning-outline"><i class="fa-solid fa-triangle-exclamation mr-1"></i> Risco Alto (78)</span>
+                </div>
+                <div class="process-meta mt-4">
+                    <div class="meta-item"><i class="fa-regular fa-file-lines"></i><span>Saúde</span></div>
+                    <div class="meta-item"><i class="fa-regular fa-clock"></i><span>27/04/2026</span></div>
+                </div>
+                <div class="process-progress mt-3">
+                    <div class="progress-header"><span class="font-weight-500 text-sm">Completude</span><span class="font-weight-600 text-sm">100%</span></div>
+                    <div class="progress-bar-bg mt-2"><div class="progress-bar-fill" style="width: 100%;"></div></div>
+                </div>
+            </div>
+            
+            <div class="process-card">
+                <div class="process-header">
+                    <div class="process-icon-box">
+                        <i class="fa-solid fa-building"></i>
+                    </div>
+                    <div class="process-title-area">
+                        <h4>Farmácia Vida & Saúde</h4>
+                        <span class="process-id">VISA-N7P3Q1</span>
+                    </div>
+                </div>
+                <div class="process-badges mt-3">
+                    <span class="badge badge-primary-outline"><i class="fa-regular fa-circle mr-1"></i> Em Análise</span>
+                    <span class="badge badge-warning-outline"><i class="fa-solid fa-triangle-exclamation mr-1"></i> Risco Médio (45)</span>
+                </div>
+                <div class="process-meta mt-4">
+                    <div class="meta-item"><i class="fa-regular fa-file-lines"></i><span>Farmacêutico</span></div>
+                    <div class="meta-item"><i class="fa-regular fa-clock"></i><span>27/04/2026</span></div>
+                </div>
+                <div class="process-progress mt-3">
+                    <div class="progress-header"><span class="font-weight-500 text-sm">Completude</span><span class="font-weight-600 text-sm">100%</span></div>
+                    <div class="progress-bar-bg mt-2"><div class="progress-bar-fill" style="width: 100%;"></div></div>
+                </div>
+            </div>
+
+            <div class="process-card">
+                <div class="process-header">
+                    <div class="process-icon-box">
+                        <i class="fa-solid fa-building"></i>
+                    </div>
+                    <div class="process-title-area">
+                        <h4>Pet Shop Animal Care</h4>
+                        <span class="process-id">VISA-J6H4D8</span>
+                    </div>
+                </div>
+                <div class="process-badges mt-3">
+                    <span class="badge badge-light-outline"><i class="fa-regular fa-clock mr-1"></i> Pendente</span>
+                    <span class="badge badge-warning-outline"><i class="fa-solid fa-triangle-exclamation mr-1"></i> Risco Médio (55)</span>
+                </div>
+                <div class="process-meta mt-4">
+                    <div class="meta-item"><i class="fa-regular fa-file-lines"></i><span>Veterinário</span></div>
+                    <div class="meta-item"><i class="fa-regular fa-clock"></i><span>27/04/2026</span></div>
+                </div>
+                <div class="process-progress mt-3">
+                    <div class="progress-header"><span class="font-weight-500 text-sm">Completude</span><span class="font-weight-600 text-sm">100%</span></div>
+                    <div class="progress-bar-bg mt-2"><div class="progress-bar-fill" style="width: 100%;"></div></div>
+                </div>
+            </div>
+
+            <div class="process-card">
+                <div class="process-header">
+                    <div class="process-icon-box">
+                        <i class="fa-solid fa-building"></i>
+                    </div>
+                    <div class="process-title-area">
+                        <h4>Padaria Pão de Ouro</h4>
+                        <span class="process-id">VISA-K8L1M5</span>
+                    </div>
+                </div>
+                <div class="process-badges mt-3">
+                    <span class="badge badge-success-outline"><i class="fa-regular fa-circle-check mr-1"></i> Aprovado</span>
+                    <span class="badge badge-success-outline"><i class="fa-solid fa-shield-check mr-1"></i> Risco Baixo (12)</span>
+                </div>
+                <div class="process-meta mt-4">
+                    <div class="meta-item"><i class="fa-regular fa-file-lines"></i><span>Alimentício</span></div>
+                    <div class="meta-item"><i class="fa-regular fa-clock"></i><span>27/04/2026</span></div>
+                </div>
+                <div class="process-progress mt-3">
+                    <div class="progress-header"><span class="font-weight-500 text-sm">Completude</span><span class="font-weight-600 text-sm">100%</span></div>
+                    <div class="progress-bar-bg mt-2"><div class="progress-bar-fill" style="width: 100%;"></div></div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Floating Help Button -->
+        <div class="floating-btn">
+            <i class="fa-regular fa-comment-dots"></i>
+        </div>
+    </main>
+    <script src="static/js/main.js"></script>
+</body>
+</html>
