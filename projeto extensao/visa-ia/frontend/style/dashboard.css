@@ -1,0 +1,321 @@
+/* --- LAYOUT DA PÁGINA --- */
+.main-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.page-title {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.page-subtitle {
+    font-size: 14px;
+    color: var(--text-muted);
+}
+
+/* --- STATS CARDS (Indicadores) --- */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.stat-card {
+    background-color: white;
+    border-radius: var(--border-radius-lg);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.stat-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.box-blue {
+    background-color: var(--info-light);
+    color: var(--info);
+}
+
+.box-yellow {
+    background-color: var(--warning-light);
+    color: var(--warning);
+}
+
+.box-green {
+    background-color: var(--success-light);
+    color: var(--success);
+}
+
+.box-red {
+    background-color: var(--danger-light);
+    color: var(--danger);
+}
+
+.stat-info h3 {
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.stat-info p {
+    font-size: 12px;
+    color: var(--text-muted);
+    margin-top: 4px;
+}
+
+/* --- FILTROS --- */
+.filters-container {
+    background-color: white;
+    border-radius: var(--border-radius-lg);
+    padding: 1.25rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+}
+
+.filters-row {
+    display: flex;
+    gap: 1rem;
+}
+
+.search-box {
+    flex: 2;
+    position: relative;
+}
+
+.search-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+}
+
+.search-box input {
+    width: 100%;
+    padding: 10px 14px 10px 40px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    font-size: 14px;
+    outline: none;
+}
+
+.filter-select {
+    flex: 1;
+    position: relative;
+}
+
+.filter-select select {
+    width: 100%;
+    padding: 10px 30px 10px 14px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-md);
+    appearance: none;
+    background: white;
+    font-size: 14px;
+}
+
+.select-icon {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-muted);
+    pointer-events: none;
+}
+
+/* --- GRID DE PROCESSOS (Cards) --- */
+.processes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+}
+
+.process-card {
+    background-color: white;
+    border-radius: var(--border-radius-lg);
+    padding: 1.5rem;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border-color);
+    transition: transform 0.2s;
+}
+
+.process-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.process-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+}
+
+.process-icon-box {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background-color: var(--info-light);
+    color: var(--info);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.process-title-area h4 {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.process-id {
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+/* Badges de Status */
+.process-badges {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.badge {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 10px;
+    font-weight: 500;
+    display: inline-flex;
+    align-items: center;
+}
+
+.badge-warning-outline {
+    color: #d97706;
+    border: 1px solid #fcd34d;
+    background-color: #fffbeb;
+}
+
+.badge-danger-outline {
+    color: var(--danger);
+    border: 1px solid #fecaca;
+    background-color: #fef2f2;
+}
+
+.badge-primary-outline {
+    color: var(--primary-color);
+    border: 1px solid #bfdbfe;
+    background-color: #eff6ff;
+}
+
+.badge-success-outline {
+    color: var(--success);
+    border: 1px solid #a7f3d0;
+    background-color: #ecfdf5;
+}
+
+.badge-light-outline {
+    color: var(--text-muted);
+    border: 1px solid var(--border-color);
+    background-color: var(--bg-color);
+}
+
+/* Meta e Barra de Progresso */
+.process-meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: var(--text-muted);
+}
+
+.meta-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.process-progress {
+    border-top: 1px solid var(--border-color);
+    padding-top: 1rem;
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+}
+
+.progress-bar-bg {
+    height: 6px;
+    background-color: var(--border-color);
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.progress-bar-fill {
+    height: 100%;
+    background-color: var(--primary-color);
+}
+
+/* --- UTILITÁRIOS --- */
+.mt-3 {
+    margin-top: 1rem;
+}
+
+.mt-4 {
+    margin-top: 1.5rem;
+}
+
+.mt-5 {
+    margin-top: 2rem;
+}
+
+.mx-2 {
+    margin: 0 0.5rem;
+}
+
+.mr-1 {
+    margin-right: 0.25rem;
+}
+
+.text-muted {
+    color: var(--text-muted);
+}
+
+.font-weight-500 {
+    font-weight: 500;
+}
+
+.font-weight-600 {
+    font-weight: 600;
+}
+
+.text-sm {
+    font-size: 0.875rem;
+}
+
+/* Botão de Ajuda Flutuante */
+.floating-btn {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: #991b1b;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
