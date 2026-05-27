@@ -7,67 +7,69 @@
   <title>Login - VISA Londrina</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link rel="stylesheet" href="./style/login.css"/>
-  <link rel="stylesheet" href="./style/global.css"/>
+  <link rel="stylesheet" href="./style/global.css" />
+  <link rel="stylesheet" href="./style/login.css" />
 </head>
 
 <body>
-  <main class="main-content">
-    <div class="login-wrapper">
-      <div class="login-card">
-        <div class="login-header">
-          <div class="shield-icon large">
-            <i class="fa-solid fa-shield-halved"></i>
-          </div>
+  <main class="login-wrapper">
+    <div class="login-card-horizontal">
+      <!-- Lado Esquerdo: Identidade -->  
+      <div class="login-sidebar">
+        <div class="shield-icon large">
+          <i class="fa-solid fa-shield-halved"></i>
+        </div>
+        <div class="sidebar-text">
           <h2>VISA Londrina</h2>
           <p>Sistema de Vigilância Sanitária</p>
         </div>
+        <div class="sidebar-footer">
+          <img src="https://www.gov.br/governodigital/pt-br/estrategia-de-governo-digital/logo-gov-br.png" alt="Gov.br">
+          <span>Portal de Serviços Integrados</span>
+        </div>
+      </div>
 
-        <form action="portal_static.html" method="GET" class="login-form">
+      <!-- Lado Direito: Formulário -->
+      <div class="login-content">
+        <form id="loginForm">
+          <div class="role-selector-top">
+            <label class="role-option">
+              <input type="radio" name="role" value="empresa" checked>
+              <div class="role-tab">Empresa</div>
+            </label>
+            <label class="role-option">
+              <input type="radio" name="role" value="servidor">
+              <div class="role-tab">Servidor VISA</div>
+            </label>
+          </div>
           <div class="form-group">
-            <label for="email">E-mail</label>
+            <label id="label-identificador">CPF</label>
             <div class="input-wrapper">
-              <i class="fa-solid fa-envelope"></i>
-              <input type="email" id="email" name="email" placeholder="Digite seu e-mail" required />
+              <i class="fa-solid fa-user"></i>
+              <input type="text" id="identificador" placeholder="000.000.000-00">
             </div>
           </div>
-
           <div class="form-group">
-            <label for="password">Senha</label>
+            <label>Senha</label>
             <div class="input-wrapper">
               <i class="fa-solid fa-lock"></i>
-              <input type="password" id="password" name="password" placeholder="Digite sua senha" required />
+              <input type="password" id="password" placeholder="Digite sua senha">
             </div>
           </div>
-
-          <div class="form-group">
-            <label>Acessar como:</label>
-            <div class="role-selector">
-              <label class="role-option">
-                <input type="radio" name="role" value="empresa" checked />
-                <div class="role-box">
-                  <i class="fa-solid fa-building"></i>
-                  <span>Empresa</span>
-                </div>
-              </label>
-              <label class="role-option">
-                <input type="radio" name="role" value="analista" />
-                <div class="role-box">
-                  <i class="fa-solid fa-user-tie"></i>
-                  <span>Servidor VISA</span>
-                </div>
-              </label>
-            </div>
+          <div class="form-row-utils">
+            <label class="checkbox-container">
+              <input type="checkbox" id="rememberMe">
+              <span>Lembrar meu acesso</span>
+            </label>
           </div>
-
-          <button type="button" onclick="window.location.href = 'portal_static.html'" class="btn-primary full-width">
-            Entrar
+          <button type="submit" class="btn-primary">Entrar no Sistema</button>
+          <div class="divider">
+            <span>ou acesse com</span>
+          </div>
+          <button type="button" class="btn-gov-br">
+            <img src="https://www.gov.br/governodigital/pt-br/estrategia-de-governo-digital/logo-gov-br.png" alt="">
+            Entrar com gov.br
           </button>
-
-          <div class="login-footer">
-            <a href="#">Esqueci minha senha</a>
-            <a href="#">Primeiro acesso? Cadastre-se</a>
-          </div>
         </form>
       </div>
     </div>

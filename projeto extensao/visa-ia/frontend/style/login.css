@@ -1,3 +1,6 @@
+/* login.css - Versão Premium Horizontal Otimizada */
+
+/* 1. CONFIGURAÇÕES BASE */
 * {
     margin: 0;
     padding: 0;
@@ -6,12 +9,11 @@
 }
 
 body {
-    background-color: var(--bg-color);
+    background-color: #f0f2f5; /* Fundo levemente acinzentado */
     color: var(--text-main);
     line-height: 1.5;
 }
 
-/* 2. ESTRUTURA DO CARD */
 .login-wrapper {
     display: flex;
     align-items: center;
@@ -20,93 +22,94 @@ body {
     padding: 20px;
 }
 
-.login-card {
-    background-color: var(--card-bg);
+/* 2. CARD HORIZONTAL (SPLIT SCREEN) */
+.login-card-horizontal {
+    display: flex;
+    background-color: white;
     width: 100%;
-    max-width: 400px;
-    padding: 2.5rem;
-    border-radius: var(--border-radius-lg);
-    box-shadow: var(--shadow-lg);
+    max-width: 900px; /* Mais largo para o layout horizontal */
+    min-height: 580px;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
 }
 
-.login-header {
+/* 3. PAINEL LATERAL (ESQUERDA) */
+.login-sidebar {
+    flex: 1;
+    background: linear-gradient(135deg, #1a4f9c 0%, #102a52 100%);
+    color: white;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     text-align: center;
-    margin-bottom: 2rem;
-}
-
-.login-header h2 {
-    font-size: 24px;
-    font-weight: 700;
-    margin-top: 10px;
-}
-
-.login-header p {
-    color: var(--text-muted);
-    font-size: 14px;
 }
 
 .shield-icon.large {
-    width: 64px;
-    height: 64px;
-    background-color: var(--primary-color);
-    color: white;
-    font-size: 32px;
-    margin: 0 auto 1rem;
-    border-radius: 16px;
+    width: 80px;
+    height: 80px;
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(8px);
+    border-radius: 20px;
     display: flex;
     align-items: center;
     justify-content: center;
+    font-size: 40px;
+    margin-bottom: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-/* 3. FORMULÁRIOS (O que estava faltando) */
-.form-group {
+.sidebar-text h2 {
+    font-size: 28px;
+    font-weight: 800;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+}
+
+.sidebar-text p {
+    font-size: 14px;
+    opacity: 0.8;
+    max-width: 220px;
+}
+
+.sidebar-footer {
+    margin-top: auto;
     display: flex;
     flex-direction: column;
-    gap: 6px;
-    margin-bottom: 1.25rem;
-    text-align: left;
+    align-items: center;
+    gap: 12px;
+    opacity: 0.5;
 }
 
-.form-group label {
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--text-main);
+.sidebar-footer img {
+    height: 20px;
+    filter: brightness(0) invert(1); /* Deixa a logo do gov.br branca */
 }
 
-.input-wrapper {
-    position: relative;
+.sidebar-footer span {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.input-wrapper i {
-    position: absolute;
-    left: 14px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: var(--text-muted);
-}
-
-input[type="email"],
-input[type="password"] {
-    width: 100%;
-    padding: 12px 14px 12px 40px;
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius-md);
-    font-size: 14px;
-    outline: none;
-    transition: all 0.2s;
-    background-color: white;
-}
-
-input:focus {
-    border-color: var(--primary-light);
-    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-}
-
-/* 4. SELETOR DE PERFIL */
-.role-selector {
+/* 4. CONTEÚDO DO FORMULÁRIO (DIREITA) */
+.login-content {
+    flex: 1.2;
+    padding: 50px 60px;
     display: flex;
-    gap: 10px;
-    margin-top: 8px;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* SELETOR DE PERFIL ESTILO TABS (HORIZONTAL) */
+.role-selector-top {
+    display: flex;
+    background-color: #f1f5f9;
+    padding: 5px;
+    border-radius: 14px;
+    margin-bottom: 30px;
 }
 
 .role-option {
@@ -118,75 +121,192 @@ input:focus {
     display: none;
 }
 
-.role-box {
-    border: 1px solid var(--border-color);
-    border-radius: var(--border-radius-md);
-    padding: 12px;
+.role-tab {
+    padding: 10px;
     text-align: center;
-    transition: all 0.2s;
-    background-color: white;
-}
-
-.role-box i {
-    display: block;
-    font-size: 20px;
-    margin-bottom: 4px;
-    color: var(--text-muted);
-}
-
-.role-box span {
-    font-size: 12px;
-    font-weight: 500;
-}
-
-.role-option input:checked+.role-box {
-    border-color: var(--primary-color);
-    background-color: var(--info-light);
-}
-
-.role-option input:checked+.role-box i {
-    color: var(--primary-color);
-}
-
-/* 5. BOTÃO PRINCIPAL */
-.btn-primary {
-    width: 100%;
-    background-color: var(--primary-light);
-    color: white;
-    border: none;
-    padding: 12px 20px;
-    border-radius: var(--border-radius-md);
-    font-weight: 600;
-    font-size: 14px;
-    cursor: pointer;
-    transition: background-color 0.2s;
-    margin-top: 10px;
-}
-
-.btn-primary:hover {
-    background-color: var(--primary-color);
-}
-
-/* 6. RODAPÉ */
-.login-footer {
-    margin-top: 1.5rem;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.login-footer a {
     font-size: 13px;
-    color: var(--primary-color);
-    text-decoration: none;
-    font-weight: 500;
+    font-weight: 600;
+    color: var(--text-muted);
+    border-radius: 10px;
+    transition: all 0.3s ease;
 }
 
-.login-footer a:hover {
+.role-option input:checked + .role-tab {
+    background-color: white;
+    color: #1a4f9c;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* INPUTS */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #334155;
+}
+
+.input-wrapper {
+    position: relative;
+}
+
+.input-wrapper i {
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94a3b8;
+}
+
+.input-wrapper input {
+    width: 100%;
+    padding: 14px 16px 14px 45px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 14px;
+    outline: none;
+    transition: all 0.2s;
+    background-color: #f8fafc;
+}
+
+.input-wrapper input:focus {
+    border-color: #1a4f9c;
+    background-color: white;
+    box-shadow: 0 0 0 4px rgba(26, 79, 156, 0.1);
+}
+
+/* UTILITÁRIOS (LINHA HORIZONTAL) */
+.form-row-utils {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: #64748b;
+    cursor: pointer;
+}
+
+#forgotPassword {
+    font-size: 13px;
+    color: #1a4f9c;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+#forgotPassword:hover {
     text-decoration: underline;
 }
 
-.full-width {
+/* BOTÕES */
+.btn-primary {
     width: 100%;
+    background-color: #1a4f9c;
+    color: white;
+    border: none;
+    padding: 15px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+    margin-bottom: 20px;
+}
+
+.btn-primary:hover {
+    background-color: #102a52;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 15px rgba(26, 79, 156, 0.2);
+}
+
+/* GOV.BR */
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #cbd5e1;
+}
+
+.divider::before, .divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.divider span {
+    padding: 0 10px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #94a3b8;
+}
+
+.btn-gov-br {
+    width: 100%;
+    background-color: #004587;
+    color: white;
+    border: none;
+    padding: 12px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-gov-br img {
+    height: 18px;
+}
+
+.btn-gov-br:hover {
+    filter: brightness(1.1);
+}
+
+/* RODAPÉ */
+.signup-text {
+    text-align: center;
+    margin-top: 25px;
+    font-size: 13px;
+    color: #64748b;
+}
+
+.signup-text a {
+    color: #1a4f9c;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+/* RESPONSIVIDADE PARA CELULAR */
+@media (max-width: 800px) {
+    .login-card-horizontal {
+        flex-direction: column;
+        max-width: 400px;
+    }
+
+    .login-sidebar {
+        padding: 40px 20px;
+    }
+
+    .sidebar-footer {
+        display: none; /* Esconde info extra no mobile para poupar espaço */
+    }
+
+    .login-content {
+        padding: 30px;
+    }
 }
