@@ -1,6 +1,5 @@
 <!doctype html>
 <html lang="pt-BR">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,11 +9,10 @@
   <link rel="stylesheet" href="./style/global.css" />
   <link rel="stylesheet" href="./style/login.css" />
 </head>
-
 <body>
   <main class="login-wrapper">
     <div class="login-card-horizontal">
-      <!-- Lado Esquerdo: Identidade -->  
+      <!-- Lado Esquerdo: Identidade -->
       <div class="login-sidebar">
         <div class="shield-icon large">
           <i class="fa-solid fa-shield-halved"></i>
@@ -24,11 +22,9 @@
           <p>Sistema de Vigilância Sanitária</p>
         </div>
         <div class="sidebar-footer">
-          <img src="https://www.gov.br/governodigital/pt-br/estrategia-de-governo-digital/logo-gov-br.png" alt="Gov.br">
           <span>Portal de Serviços Integrados</span>
         </div>
       </div>
-
       <!-- Lado Direito: Formulário -->
       <div class="login-content">
         <form id="loginForm">
@@ -43,18 +39,21 @@
             </label>
           </div>
           <div class="form-group">
-            <label id="label-identificador">CPF</label>
+            <label for="identificador" id="label-identificador">CNPJ</label> 
             <div class="input-wrapper">
               <i class="fa-solid fa-user"></i>
-              <input type="text" id="identificador" placeholder="000.000.000-00">
+              <input type="text" id="identificador" placeholder="00.000.000/0000-00">
             </div>
+            <span id="error-identificador"></span>
           </div>
           <div class="form-group">
-            <label>Senha</label>
+            <label for="password">Senha</label>
             <div class="input-wrapper">
               <i class="fa-solid fa-lock"></i>
               <input type="password" id="password" placeholder="Digite sua senha">
+              <i class="fa-solid fa-eye" id="togglePassword"></i>
             </div>
+            <span id="error-password"></span>
           </div>
           <div class="form-row-utils">
             <label class="checkbox-container">
@@ -66,10 +65,7 @@
           <div class="divider">
             <span>ou acesse com</span>
           </div>
-          <button type="button" class="btn-gov-br">
-            <img src="https://www.gov.br/governodigital/pt-br/estrategia-de-governo-digital/logo-gov-br.png" alt="">
-            Entrar com gov.br
-          </button>
+          <button type="button" class="btn-gov-br">Entrar com Gov.br</button>
         </form>
       </div>
     </div>
@@ -77,5 +73,4 @@
   <script src="./js/global.js"></script>
   <script src="./js/login.js"></script>
 </body>
-
 </html>

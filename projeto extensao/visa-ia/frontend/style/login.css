@@ -1,6 +1,4 @@
-/* login.css - Versão Premium Horizontal Otimizada */
-
-/* 1. CONFIGURAÇÕES BASE */
+/* --- RESET E ESTILOS GERAIS --- */
 * {
     margin: 0;
     padding: 0;
@@ -9,11 +7,12 @@
 }
 
 body {
-    background-color: #f0f2f5; /* Fundo levemente acinzentado */
-    color: var(--text-main);
+    background-color: #f0f2f5;
+    color: #334155;
     line-height: 1.5;
 }
 
+/* Centraliza o card de login vertical e horizontalmente na tela */
 .login-wrapper {
     display: flex;
     align-items: center;
@@ -22,19 +21,19 @@ body {
     padding: 20px;
 }
 
-/* 2. CARD HORIZONTAL (SPLIT SCREEN) */
+/* --- CARD PRINCIPAL (ESTRUTURA HORIZONTAL) --- */
 .login-card-horizontal {
     display: flex;
     background-color: white;
     width: 100%;
-    max-width: 900px; /* Mais largo para o layout horizontal */
+    max-width: 900px;
     min-height: 580px;
     border-radius: 24px;
     overflow: hidden;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
 }
 
-/* 3. PAINEL LATERAL (ESQUERDA) */
+/* --- PAINEL LATERAL ESQUERDO (IDENTIDADE VISUAL) --- */
 .login-sidebar {
     flex: 1;
     background: linear-gradient(135deg, #1a4f9c 0%, #102a52 100%);
@@ -47,6 +46,7 @@ body {
     text-align: center;
 }
 
+/* Container do ícone de escudo */
 .shield-icon.large {
     width: 80px;
     height: 80px;
@@ -74,18 +74,10 @@ body {
     max-width: 220px;
 }
 
+/* Rodapé do painel lateral */
 .sidebar-footer {
     margin-top: auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
     opacity: 0.5;
-}
-
-.sidebar-footer img {
-    height: 20px;
-    filter: brightness(0) invert(1); /* Deixa a logo do gov.br branca */
 }
 
 .sidebar-footer span {
@@ -94,7 +86,7 @@ body {
     letter-spacing: 1px;
 }
 
-/* 4. CONTEÚDO DO FORMULÁRIO (DIREITA) */
+/* --- ÁREA DO FORMULÁRIO (DIREITA) --- */
 .login-content {
     flex: 1.2;
     padding: 50px 60px;
@@ -103,7 +95,7 @@ body {
     justify-content: center;
 }
 
-/* SELETOR DE PERFIL ESTILO TABS (HORIZONTAL) */
+/* SELETOR DE PERFIL (TABS: EMPRESA / SERVIDOR) */
 .role-selector-top {
     display: flex;
     background-color: #f1f5f9;
@@ -121,23 +113,25 @@ body {
     display: none;
 }
 
+/* Estiliza o botão falso da tab */
 .role-tab {
     padding: 10px;
     text-align: center;
     font-size: 13px;
     font-weight: 600;
-    color: var(--text-muted);
+    color: #64748b;
     border-radius: 10px;
     transition: all 0.3s ease;
 }
 
-.role-option input:checked + .role-tab {
+/* Estilo de quando o rádio escondido acima está selecionado */
+.role-option input:checked+.role-tab {
     background-color: white;
     color: #1a4f9c;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
 }
 
-/* INPUTS */
+/* --- CAMPOS DE ENTRADA (INPUTS) --- */
 .form-group {
     margin-bottom: 20px;
 }
@@ -146,14 +140,19 @@ body {
     display: block;
     font-size: 13px;
     font-weight: 700;
-    margin-bottom: 8px;
+    margin-bottom: 3px;
     color: #334155;
+    cursor: pointer;
 }
 
+/* Container que agrupa o ícone e o input */
 .input-wrapper {
+    display: flex;
+    align-items: center;
     position: relative;
 }
 
+/* Ícones dentro dos campos (usuário, cadeado) */
 .input-wrapper i {
     position: absolute;
     left: 16px;
@@ -164,7 +163,7 @@ body {
 
 .input-wrapper input {
     width: 100%;
-    padding: 14px 16px 14px 45px;
+    padding: 14px 45px 14px 45px;
     border: 1.5px solid #e2e8f0;
     border-radius: 12px;
     font-size: 14px;
@@ -173,13 +172,37 @@ body {
     background-color: #f8fafc;
 }
 
+/* Efeito ao clicar no campo */
 .input-wrapper input:focus {
     border-color: #1a4f9c;
     background-color: white;
-    box-shadow: 0 0 0 4px rgba(26, 79, 156, 0.1);
+    box-shadow: 0 0 0 2px rgba(26, 79, 156, 0.1);
 }
 
-/* UTILITÁRIOS (LINHA HORIZONTAL) */
+/* Estilo das mensagens de erro */
+#error-identificador,
+#error-password {
+    color: #ef4444;
+    font-size: 12px;
+    display: none;
+    margin-top: 5px;
+}
+
+/* Posicionamento do ícone de olho (mostrar senha) */
+#togglePassword {
+    left: auto;
+    right: 16px;
+    cursor: pointer;
+    transition: color 0.2s;
+    position: absolute;
+    color: #94a3b8;
+}
+
+#togglePassword:hover {
+    color: #333;
+}
+
+/* --- CHECKBOX E LINKS AUXILIARES --- */
 .form-row-utils {
     display: flex;
     justify-content: space-between;
@@ -187,13 +210,44 @@ body {
     margin-bottom: 25px;
 }
 
+/* CUSTOM CHECKBOX (Lembrar meu acesso) */
 .checkbox-container {
     display: flex;
     align-items: center;
-    gap: 8px;
-    font-size: 13px;
-    color: #64748b;
     cursor: pointer;
+    font-size: 14px;
+    color: #64748b;
+    user-select: none;
+    gap: 10px;
+}
+
+.checkbox-container input {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 18px;
+    height: 18px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 5px;
+    background-color: #f8fafc;
+    cursor: pointer;
+    display: grid;
+    place-content: center;
+    transition: all 0.2s ease-in-out;
+}
+
+/* Cor quando marcado */
+.checkbox-container input:checked {
+    background-color: #1a4f9c;
+    border-color: #1a4f9c;
+}
+
+/* Ícone de check branco dentro do checkbox marcado */
+.checkbox-container input:checked::after {
+    content: "\f00c";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    font-size: 10px;
+    color: white;
 }
 
 #forgotPassword {
@@ -207,7 +261,7 @@ body {
     text-decoration: underline;
 }
 
-/* BOTÕES */
+/* --- BOTÕES DE AÇÃO --- */
 .btn-primary {
     width: 100%;
     background-color: #1a4f9c;
@@ -223,12 +277,12 @@ body {
 }
 
 .btn-primary:hover {
-    background-color: #102a52;
+    background-color: #194280;
     transform: translateY(-1px);
     box-shadow: 0 8px 15px rgba(26, 79, 156, 0.2);
 }
 
-/* GOV.BR */
+/* DIVISOR "OU ACESSE COM" */
 .divider {
     display: flex;
     align-items: center;
@@ -237,7 +291,8 @@ body {
     color: #cbd5e1;
 }
 
-.divider::before, .divider::after {
+.divider::before,
+.divider::after {
     content: '';
     flex: 1;
     border-bottom: 1px solid #e2e8f0;
@@ -252,47 +307,30 @@ body {
     color: #94a3b8;
 }
 
+/* BOTÃO GOV.BR */
 .btn-gov-br {
     width: 100%;
-    background-color: #004587;
+    background-color: #1a4f9c;
     color: white;
     border: none;
-    padding: 12px;
+    padding: 15px;
     border-radius: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    font-weight: 600;
-    font-size: 14px;
+    font-weight: 700;
+    font-size: 15px;
     cursor: pointer;
-    transition: 0.2s;
-}
-
-.btn-gov-br img {
-    height: 18px;
+    transition: 0.3s;
 }
 
 .btn-gov-br:hover {
-    filter: brightness(1.1);
+    background-color: #194280;
+    transform: translateY(-1px);
+    box-shadow: 0 8px 15px rgba(26, 79, 156, 0.2);
 }
 
-/* RODAPÉ */
-.signup-text {
-    text-align: center;
-    margin-top: 25px;
-    font-size: 13px;
-    color: #64748b;
-}
-
-.signup-text a {
-    color: #1a4f9c;
-    font-weight: 700;
-    text-decoration: none;
-}
-
-/* RESPONSIVIDADE PARA CELULAR */
+/* --- RESPONSIVIDADE (MOBILE) --- */
 @media (max-width: 800px) {
+
+    /* No celular, o card deixa de ser horizontal e vira vertical */
     .login-card-horizontal {
         flex-direction: column;
         max-width: 400px;
@@ -300,10 +338,6 @@ body {
 
     .login-sidebar {
         padding: 40px 20px;
-    }
-
-    .sidebar-footer {
-        display: none; /* Esconde info extra no mobile para poupar espaço */
     }
 
     .login-content {
